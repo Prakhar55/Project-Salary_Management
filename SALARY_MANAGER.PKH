@@ -1,0 +1,60 @@
+conn SALARY_MGMT/dbase @ xe;
+CREATE OR REPLACE PACKAGE SALARY_MANAGER
+AS
+PROCEDURE enter_and_maintain_address    (p_employee_id	number
+			,p_address_1			varchar2
+			,p_address_2			varchar2
+			,p_address_3			varchar2
+			,p_city				varchar2
+			,p_pincode			number
+			,p_state			varchar2
+			,p_country			varchar2
+			,p_address_type 	varchar2
+			,p_mode				varchar2
+			);
+
+/*PROCEDURE enter_and_maintain_deduction  (p_employee_id	number
+			,p_tax_ampount			number
+			,p_loan_amount			number
+			,p_leave_amount			number
+			,p_proffesional_tax		number
+			,p_mode				varchar2
+			);*/
+
+PROCEDURE enter_and_maintain_departments(p_department_id number
+			,p_department_name		varchar2
+			,p_manager_id			number
+			,p_mode				varchar2
+			);
+
+PROCEDURE enter_and_maintain_emp_sal    (p_employee_id	number
+			,p_basic			number
+			,p_hra				number
+			,p_conveyance			number
+			,p_medical			number
+			,p_lta				number
+			,p_salary_year   		number
+			,p_mode				varchar2
+			);
+
+procedure enter_and_maintain_employees  (p_employee_id	number
+			,p_first_name			varchar2
+			,p_last_name			varchar2
+			,p_date_of_birth		date
+			,p_department_id		number
+			,p_email			varchar2
+			,p_job_id			varchar2
+			,p_employee_type		varchar2
+			,p_contact_no			number
+			,p_effective_start_date		date
+			,p_effective_end_date		date
+			,p_mode				varchar2
+			);
+procedure salary_payslip(p_employee_id IN NUMBER
+			,p_date  IN DATE);
+
+PROCEDURE emp_payroll(p_date		IN	DATE
+		,p_department_id  IN     NUMBER);
+
+END;
+/
